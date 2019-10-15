@@ -17,8 +17,18 @@ class Player
         end
     end 
 
-    def attacks(player)
-        puts "le joueur #{@name}#{player} attaque le joueur #{player}"
+    def compute_damage
+        return rand(1..6)
+    end
     
+    def attacks(player)
+        puts "le joueur #{@name} attaque le joueur #{player.name}!"
+        
+        damage = compute_damage
+        
+        player.gets_damage(damage) 
+        puts "il lui inflige #{damage} points de dommages"  
     end 
 end 
+
+player1.life_points > 0 && player2.life_points >0 
